@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMO | 医療脱毛ナースの単発ワーク(準備中)</title>
+<meta name="description" content="LUMOは医療脱毛に特化した看護師の単発ワークマッチングサービスです。照射機種のスキルでつながる、新しい働き方。現在サービス開始に向けて準備中・事前登録受付中。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1830;
+    --accent:#C2185B;
+    --accent-soft:#FCE4EC;
+    --bg:#F6F5FA;
+    --card:#FFFFFF;
+    --muted:#6B7280;
+    --mono:'IBM Plex Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Zen Kaku Gothic New',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+
+  /* ── header ── */
+  header{position:sticky;top:0;z-index:50;background:rgba(26,24,48,.96);backdrop-filter:blur(8px);color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-family:var(--mono);font-weight:600;font-size:22px;letter-spacing:.08em}
+  .logo span{color:var(--accent)}
+  nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:13px;font-weight:700;margin-left:18px}
+  nav a:hover{color:#fff}
+
+  /* ── hero ── */
+  .hero{background:var(--ink);color:#fff;padding:72px 20px 88px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-40%;right:-15%;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle,rgba(194,24,91,.35),transparent 65%)}
+  .hero::after{content:"";position:absolute;bottom:-50%;left:-10%;width:480px;height:480px;border-radius:50%;
+    background:radial-gradient(circle,rgba(106,27,154,.28),transparent 65%)}
+  .hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1}
+  .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 14px;margin-bottom:22px}
+  h1{font-size:clamp(28px,6vw,46px);font-weight:900;line-height:1.35;letter-spacing:.01em}
+  h1 em{font-style:normal;color:transparent;background:linear-gradient(90deg,#F48FB1,#CE93D8);-webkit-background-clip:text;background-clip:text}
+  .hero p{margin-top:18px;font-size:15px;color:rgba(255,255,255,.82);max-width:560px}
+  .cta-row{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:900;font-size:15px;border-radius:12px;padding:15px 28px;transition:transform .15s ease,box-shadow .15s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 20px rgba(194,24,91,.4)}
+  .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+
+  /* ── sections ── */
+  section{padding:64px 20px}
+  .inner{max-width:860px;margin:0 auto}
+  .kicker{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}
+  h2{font-size:clamp(22px,4.5vw,30px);font-weight:900;line-height:1.4;margin-bottom:14px}
+  .lead{color:var(--muted);font-size:15px;max-width:600px}
+
+  .grid{display:grid;gap:16px;margin-top:32px}
+  @media(min-width:720px){.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}}
+  .card{background:var(--card);border-radius:16px;padding:24px 22px;box-shadow:0 1px 4px rgba(26,24,48,.06)}
+  .card h3{font-size:16px;font-weight:900;margin-bottom:8px}
+  .card p{font-size:13.5px;color:var(--muted)}
+  .num{font-family:var(--mono);font-weight:600;font-size:13px;color:var(--accent);display:block;margin-bottom:10px}
+
+  /* ── machine tags ── */
+  .machines{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .mtag{display:flex;flex-direction:column;border:1.5px solid;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700;background:#fff}
+  .mtag small{font-family:var(--mono);font-size:9.5px;font-weight:500;opacity:.75}
+  .m-alex{border-color:#C2185B;color:#C2185B}
+  .m-yag{border-color:#AD1457;color:#AD1457}
+  .m-diode{border-color:#283593;color:#283593}
+  .m-heat{border-color:#6A1B9A;color:#6A1B9A}
+
+  /* ── dark band ── */
+  .band{background:var(--ink);color:#fff}
+  .band .card{background:rgba(255,255,255,.06);box-shadow:none;border:1px solid rgba(255,255,255,.1)}
+  .band .card p{color:rgba(255,255,255,.72)}
+  .band .lead{color:rgba(255,255,255,.75)}
+
+  /* ── register ── */
+  .register-card{background:linear-gradient(135deg,#fff,var(--accent-soft));border-radius:20px;padding:36px 28px;text-align:center;box-shadow:0 4px 24px rgba(194,24,91,.12)}
+  .register-card h2{margin-bottom:8px}
+  .register-card p{color:var(--muted);font-size:14px;margin-bottom:24px}
+
+  /* ── footer ── */
+  footer{background:#131126;color:rgba(255,255,255,.6);padding:36px 20px;font-size:12px}
+  footer .inner{display:flex;flex-direction:column;gap:8px}
+  .legal{font-size:11px;line-height:1.8;color:rgba(255,255,255,.45)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">LUMO<span>·</span></div>
+  <nav>
+    <a href="#nurse">ナースの方</a>
+    <a href="#clinic">クリニックの方</a>
+    <a href="#register">事前登録</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="badge">2026年 サービス開始予定｜事前登録受付中</span>
+    <h1>照射スキルが、<br>そのまま<em>キャリア</em>になる。</h1>
+    <p>LUMO(ルーモ)は、医療脱毛に特化した看護師の単発ワークマッチングサービスです。使える機種で選べる、1日単位の新しい働き方を準備しています。</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#register">ナース事前登録(無料)</a>
+      <a class="btn btn-ghost" href="#clinic">クリニックの方はこちら</a>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="inner">
+    <div class="kicker">Why LUMO</div>
+    <h2>「脱毛ができるナース」を、<br>機種の解像度でつなぐ。</h2>
+    <p class="lead">総合的な単発バイトサービスでは「照射ができるか」までは分かりません。LUMOは医療脱毛専門。機種ごとの使用経験をスキルとして可視化し、クリニックとナースの精密なマッチングを目指します。</p>
+    <div class="machines">
+      <span class="mtag m-alex">ジェントルマックスプロ<small>755/1064nm</small></span>
+      <span class="mtag m-yag">スプレンダーX<small>755/1064nm</small></span>
+      <span class="mtag m-heat">ソプラノチタニウム<small>755/810/1064nm</small></span>
+      <span class="mtag m-heat">メディオスターNeXT<small>808/940nm</small></span>
+      <span class="mtag m-diode">ライトシェアデュエット<small>805nm</small></span>
+      <span class="mtag m-alex">ジェントルレーズプロ<small>755nm</small></span>
+    </div>
+  </div>
+</section>
+
+<section id="nurse" class="band">
+  <div class="inner">
+    <div class="kicker">For Nurses</div>
+    <h2>ナースの方へ</h2>
+    <p class="lead">面倒な面接や履歴書なしで、空いた日に得意な照射業務だけ。そんな働き方を実現するために準備を進めています。</p>
+    <div class="grid grid-3">
+      <div class="card"><span class="num">01</span><h3>1日単位で働ける</h3><p>本業やライフスタイルに合わせて、空いた日だけ勤務。ダブルワーク・ブランク復帰にも。</p></div>
+      <div class="card"><span class="num">02</span><h3>スキルが評価される</h3><p>照射経験・使用機種がそのまま報酬に反映。経験を積むほど条件の良いオファーが届く設計に。</p></div>
+      <div class="card"><span class="num">03</span><h3>美容特化の求人だけ</h3><p>掲載されるのは医療脱毛・美容クリニックの案件のみ。病棟系の求人に埋もれません。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="clinic">
+  <div class="inner">
+    <div class="kicker">For Clinics</div>
+    <h2>クリニックの方へ</h2>
+    <p class="lead">「予約が埋まって照射枠が足りない」「急な欠勤に対応できない」——その1日を、経験ある照射ナースで埋める仕組みを準備しています。</p>
+    <div class="grid grid-2">
+      <div class="card"><h3>機種経験者だけが届く</h3><p>貴院の導入機種を指定して募集。使用経験のあるナースのみがマッチングされるため、教育コストを最小化できます。</p></div>
+      <div class="card"><h3>固定費ゼロの人員体制</h3><p>採用費・広告費をかけずに、繁忙日だけ照射キャパを増強。機会損失を防ぎ、既存スタッフの負荷も軽減します。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="register">
+  <div class="inner">
+    <div class="register-card">
+      <div class="kicker">Pre-registration</div>
+      <h2>先行案内に登録する</h2>
+      <p>サービス開始時に優先的にご案内します。登録は30秒・完全無料です。</p>
+      <div class="cta-row" style="justify-content:center">
+        <!-- ▼▼ 公式LINE・GoogleフォームのURLに差し替えてください ▼▼ -->
+        <a class="btn btn-primary" href="https://lin.ee/XXXXXXX" target="_blank" rel="noopener">ナースの方はこちら</a>
+        <a class="btn btn-primary" style="background:var(--ink)" href="https://forms.gle/XXXXXXX" target="_blank" rel="noopener">クリニックの方はこちら</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <div class="logo" style="font-size:16px">LUMO<span style="color:var(--accent)">·</span></div>
+    <div class="legal">
+      本サービスは現在準備中です。有料職業紹介事業の許可取得後にマッチングサービスを開始予定であり、現時点で職業紹介(求人・求職の受理、あっせん)は行っておりません。本ページは事前のご案内および情報収集を目的としています。<br>
+      © 2026 LUMO. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
